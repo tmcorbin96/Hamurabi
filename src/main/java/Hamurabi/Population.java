@@ -1,5 +1,7 @@
 package Hamurabi;
 
+import java.util.Random;
+
 public class Population {
 
     int population;
@@ -7,6 +9,7 @@ public class Population {
     int starved;
     int plagueDeaths;
     Hamarabi hamarabi = new Hamarabi();
+    Random rand = new Random();
     public Population(int population, int newPeople, int starved, int plagueDeaths) {
         this.population = population;
         this.newPeople = newPeople;
@@ -54,9 +57,10 @@ public class Population {
         }
         return starved;
     }
-    public boolean uprising(int population, int starved){
-        if (starved >= Math.round(population * 0.45)){
+    public boolean uprising(int population, int starved) {
+        if (rand.nextInt(100) < 45) {
             return true;
-        }return false;
+        }
+        return false;
     }
 }
