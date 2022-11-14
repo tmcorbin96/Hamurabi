@@ -54,20 +54,20 @@ public class Hamarabi {
     }
 
     //other methods go here
-    public int askHowManyAcresToBuy(int bushelsPerAcre, int acresToBuy){
+    public int askHowManyAcresToBuy(int acresToBuy){
         if (bushelsPerAcre * acresToBuy > amountOfBushelsOwned){
             System.out.println("Try again.");
             acresToBuy = scanner.nextInt();
         } else {
             amountOfBushelsOwned = amountOfBushelsOwned - (bushelsPerAcre * acresToBuy);
         }
-        return acresToBuy;
+        return amountOfBushelsOwned -(acresToBuy*bushelsPerAcre) ;
     }
 
-    public int askHowManyAcresToSell(int acresToSell, int acresOwned){
+    public int askHowManyAcresToSell(int acresToSell){
         if (acresOwned - acresToSell <= 0){
             System.out.println("Try again");
-            scanner.nextInt();
+            acresToSell = scanner.nextInt();
         }
 //            acresOwned = acresOwned - acresToSell;
 //            amountOfBushelsOwned = amountOfBushelsOwned + (acresToSell * bushelsPerAcre);
