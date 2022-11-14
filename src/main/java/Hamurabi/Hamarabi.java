@@ -46,11 +46,7 @@ public class Hamarabi {
     }
 
     //other methods go here
-
-
-    public int
     public int askHowManyAcresToBuy(int bushelsPerAcre, int acresToBuy){
-
         if (bushelsPerAcre * acresToBuy > amountOfBushelsOwned){
             System.out.println("Try again.");
             acresToBuy = scanner.nextInt();
@@ -60,36 +56,33 @@ public class Hamarabi {
         return acresToBuy;
     }
 
-    public int askHowManyAcresToSell(int bushelsPerAcre, int acresOwned){
-        currentBushels = acresOwned - userInput;
-        if (currentBushels == 0){
+    public int askHowManyAcresToSell(int acresToSell, int acresOwned){
+        if (acresOwned - acresToSell <= 0){
             System.out.println("Try again");
             scanner.nextInt();
         }
-        return currentBushels;
+//            acresOwned = acresOwned - acresToSell;
+//            amountOfBushelsOwned = amountOfBushelsOwned + (acresToSell * bushelsPerAcre);
+
+        return acresToSell;
     }
 
     public int askHowMuchGrainToFeedPeople(int bushel){
-        int currentBushels = 0;
-        System.out.println("How much grain would you like to feed your people?");
-        int userInput = scanner.nextInt();
-        if (userInput > currentBushels){
+        if (bushel > amountOfBushelsOwned){
             System.out.println("Try again.");
-        } else if (userInput <= currentBushels){
-            currentBushels = currentBushels - userInput;
+        } else if (bushel < amountOfBushelsOwned){
+            amountOfBushelsOwned = amountOfBushelsOwned - bushel;
         }
-        return currentBushels;
+        return amountOfBushelsOwned;
     }
 
     public int askHowManyAcresToPlant(int acresOwned, int population, int bushel){
-        int currentBushels = 0;
-        System.out.println("How many acres would you like to plant?");
-        int userInput = scanner.nextInt();
-        if (userInput > population || userInput > acresOwned || userInput > bushel){
+        int acresPlanted = 0;
+        if (bushel > population * 10 || bushel > acresOwned){
             System.out.println("Try again");
-        } else if (userInput<= population / 10){
-            currentBushels = currentBushels - userInput;
-        } return currentBushels;
+        } else if (bushel <= population *  10 && bushel < acresOwned){
+            acresPlanted = bushel;
+        } return acresPlanted;
     }
 
 }

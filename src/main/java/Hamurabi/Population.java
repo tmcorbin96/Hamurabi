@@ -45,5 +45,4 @@ public class Population {
         this.plagueDeaths = plagueDeaths;
     }
 
-    
 }
