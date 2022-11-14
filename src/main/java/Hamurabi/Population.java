@@ -1,11 +1,15 @@
 package Hamurabi;
 
+import java.util.Random;
+
 public class Population {
 
     int population;
     int newPeople;
     int starved;
     int plagueDeaths;
+    Hamarabi hamarabi = new Hamarabi();
+    Random rand = new Random();
     public Population(int population, int newPeople, int starved, int plagueDeaths) {
         this.population = population;
         this.newPeople = newPeople;
@@ -45,5 +49,18 @@ public class Population {
         this.plagueDeaths = plagueDeaths;
     }
 
-    
+    public int starvationDeaths(int population, int bushelsFedToPeople){
+        if (bushelsFedToPeople >= (population * 20)){
+            return 0;
+        } else if (bushelsFedToPeople < (population * 20)){
+            starved = population - (bushelsFedToPeople / 20);
+        }
+        return starved;
+    }
+    public boolean uprising(int population, int starved) {
+        if (rand.nextInt(100) < 45) {
+            return true;
+        }
+        return false;
+    }
 }
