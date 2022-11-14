@@ -17,9 +17,10 @@ public class Hamarabi {
     int bushelsFedToPeople = 0;
     int ratsAte = 0;
     int starved = 0;
-    int bushelsHarvestedPerAcre = 0;
+    int bushelsHarvested = 0;
     int newPeople = 0;
     int year = 1;
+    int bushelsUsedAsSeed = 0;
 
 //////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) { // required in every Java program
@@ -34,7 +35,7 @@ public class Hamarabi {
         System.out.println("O great Hammurabi!  You are in year " + year + " of your ten year rule. " +
                         "In the previous year " + starved + " people starved to death. ");
         System.out.println("In the previous year " + newPeople + " people entered the kingdom.");
-        System.out.println("The population is now " + population + " .  We harvested " + bushelsHarvestedPerAcre + " bushels at 3 bushels per acre.");
+        System.out.println("The population is now " + population + " .  We harvested " + bushelsHarvested + " bushels at 3 bushels per acre.");
         System.out.println("Rats destroyed " + ratsAte + " bushels, leaving " + amountOfBushelsOwned + " bushels in storage. The city owns " + acresOwned + " acres of land. ");
         System.out.println("Land is currently worth " + bushelsPerAcre + " bushels per acre.");
 
@@ -63,7 +64,6 @@ public class Hamarabi {
         }
 //            acresOwned = acresOwned - acresToSell;
 //            amountOfBushelsOwned = amountOfBushelsOwned + (acresToSell * bushelsPerAcre);
-
         return acresToSell;
     }
 
@@ -71,18 +71,17 @@ public class Hamarabi {
         if (bushel > amountOfBushelsOwned){
             System.out.println("Try again.");
         } else if (bushel < amountOfBushelsOwned){
-            amountOfBushelsOwned = amountOfBushelsOwned - bushel;
+//            amountOfBushelsOwned = amountOfBushelsOwned - bushel;
+            bushelsFedToPeople = bushel;
         }
-        return amountOfBushelsOwned;
+        return bushelsFedToPeople;
     }
 
-    public int askHowManyAcresToPlant(int acresOwned, int population, int bushel){
-        int acresPlanted = 0;
-        if (bushel > population * 10 || bushel > acresOwned){
+    public int askHowManyAcresToPlant(int acresOwned, int population, int bushelsUsedAsSeed){
+        if (bushelsUsedAsSeed > population * 10 || bushelsUsedAsSeed > acresOwned){
             System.out.println("Try again");
-        } else if (bushel <= population *  10 && bushel < acresOwned){
-            acresPlanted = bushel;
-        } return acresPlanted;
+        } else if (bushelsUsedAsSeed <= population *  10 && bushelsUsedAsSeed < acresOwned){
+        } return bushelsUsedAsSeed;
     }
 
 }
