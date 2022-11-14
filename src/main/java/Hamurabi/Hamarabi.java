@@ -39,7 +39,14 @@ public class Hamarabi {
         System.out.println("Rats destroyed " + ratsAte + " bushels, leaving " + amountOfBushelsOwned + " bushels in storage. The city owns " + acresOwned + " acres of land. ");
         System.out.println("Land is currently worth " + bushelsPerAcre + " bushels per acre.");
 
+    Console console = new Console();
+    System.out.println(console.askHowManyAcresToBuy());
+    System.out.println(console.askHowMuchGrainToFeedPeople());
+    System.out.println(console.askHowManyAcresToPlant());
+    System.out.println(console.askHowManyAcresToSell());
 
+    System.out.println("oops, looks like God hates Hammurabi. Everybody dies from depression. " +
+            "EVERYBODY DIES");
 
 
 ////////////////////////////////////////////////////////////////////
